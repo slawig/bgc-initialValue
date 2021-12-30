@@ -18,6 +18,9 @@ To clone this project with **git** run:
 The project consists of the Python packages initialValue and Python scripts in the directory InitialValueSimulation to run a simulation using different initial concentrations.
 
 
+The Python packages util is available in the repository https://github.com/slawig/bgc-util.git.
+
+
 
 ### Python package initialValue
 
