@@ -14,7 +14,7 @@ import initialValue.constants as InitialValue_Constants
 from initialValue.InitialValuePlot import InitialValuePlot
 
 
-def main(orientation='lc2', fontsize=9, plotSpinup=False, plotNorm=False, plotRelationSpinupNorm=True, plotSurface=False):
+def main(orientation='lc2', fontsize=9, plotSpinup=False, plotNorm=False, plotRelationSpinupNorm=False, plotSurface=False):
     """
     Plot the results using different intial values for the spin up
 
@@ -31,12 +31,15 @@ def main(orientation='lc2', fontsize=9, plotSpinup=False, plotNorm=False, plotRe
     plotRelationSpinupNorm : bool, default: False
         If True, plot the figures of the relation between spin up norm and
         relative error
+    plotSurface : bool, default: False
+        If True, plot the tracer concentration for a layer (default at the surface)
     """
     assert type(orientation) is str
     assert type(fontsize) is int and 0 < fontsize
     assert type(plotSpinup) is bool
     assert type(plotNorm) is bool
     assert type(plotRelationSpinupNorm) is bool
+    assert type(plotSurface) is bool
 
     initialValuePlot = InitialValuePlots(orientation=orientation, fontsize=fontsize)
 
@@ -137,17 +140,17 @@ def main(orientation='lc2', fontsize=9, plotSpinup=False, plotNorm=False, plotRe
         surfacePlot += [('NP-DOP', 'Lognormal', 'random_mass', 0, False, False)]
         surfacePlot += [('NP-DOP', 'Normal', 'random_mass', 0, False, False)]
         surfacePlot += [('NPZ-DOP', 'OneBox', 'set_mass', 0, False, False)]
-        #surfaceplot += [('NP-DOP', 'Lognormal', 'random_mass', 0, True, True), ('NP-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NP-DOP', 'Lognormal', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZ-DOP', 'Normal', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Normal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Normal', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZ-DOP', 'OneBox', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'OneBox', 'random_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZ-DOP', 'Uniform', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Uniform', 'random_mass', 0, True, False), ('NPZ-DOP', 'Uniform', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZ-DOP', 'OneBox', 'set_mass', 0, True, True)] #, ('NPZ-DOP', 'OneBox', 'set_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'set_mass', 0, False, False)]
-        #surfacePlot += [('NPZD-DOP', 'Lognormal', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZD-DOP', 'Normal', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Normal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Normal', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZD-DOP', 'OneBox', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'OneBox', 'random_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZD-DOP', 'Uniform', 'random_mass', 0, True, True)] #, ('NPZ-DOP', 'Uniform', 'random_mass', 0, True, False), ('NPZ-DOP', 'Uniform', 'random_mass', 0, False, False)]
-        #surfacePlot += [('NPZD-DOP', 'OneBox', 'set_mass', 0, True, True)] #, ('NPZ-DOP', 'OneBox', 'set_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'set_mass', 0, False, False)]
+        surfaceplot += [('NP-DOP', 'Lognormal', 'random_mass', 0, True, True), ('NP-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NP-DOP', 'Lognormal', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, True), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZ-DOP', 'Normal', 'random_mass', 0, True, True), ('NPZ-DOP', 'Normal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Normal', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZ-DOP', 'OneBox', 'random_mass', 0, True, True), ('NPZ-DOP', 'OneBox', 'random_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZ-DOP', 'Uniform', 'random_mass', 0, True, True), ('NPZ-DOP', 'Uniform', 'random_mass', 0, True, False), ('NPZ-DOP', 'Uniform', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZ-DOP', 'OneBox', 'set_mass', 0, True, True), ('NPZ-DOP', 'OneBox', 'set_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'set_mass', 0, False, False)]
+        surfacePlot += [('NPZD-DOP', 'Lognormal', 'random_mass', 0, True, True), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Lognormal', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZD-DOP', 'Normal', 'random_mass', 0, True, True), ('NPZ-DOP', 'Normal', 'random_mass', 0, True, False), ('NPZ-DOP', 'Normal', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZD-DOP', 'OneBox', 'random_mass', 0, True, True), ('NPZ-DOP', 'OneBox', 'random_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZD-DOP', 'Uniform', 'random_mass', 0, True, True), ('NPZ-DOP', 'Uniform', 'random_mass', 0, True, False), ('NPZ-DOP', 'Uniform', 'random_mass', 0, False, False)]
+        surfacePlot += [('NPZD-DOP', 'OneBox', 'set_mass', 0, True, True), ('NPZ-DOP', 'OneBox', 'set_mass', 0, True, False), ('NPZ-DOP', 'OneBox', 'set_mass', 0, False, False)]
 
         for (model, distribution, tracerDistribution, tracerNum, tracerDifference, relativeError) in surfacePlot:
             filenameFigure = os.path.join(InitialValue_Constants.PATH_FIGURE, 'Spinup', model, InitialValue_Constants.PATTERN_FIGURE_SURFACE.format(model, 1, 0, distribution, tracerDistribution, '{}', '{}', relativeError, tracerDifference))
